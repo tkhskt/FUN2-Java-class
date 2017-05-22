@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/FUN1_jar</output-path>
     <root id="archive" name="FUN1.jar">
       <element id="module-output" name="FUN1" />
-      <element id="dir-copy" path="$PROJECT_DIR$/src/wheel" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/city" />
     </root>
   </artifact>
 </component>
