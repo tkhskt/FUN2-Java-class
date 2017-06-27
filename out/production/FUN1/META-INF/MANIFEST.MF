@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: census0.Census
+Main-Class: easywords.ReadRSS1
 
