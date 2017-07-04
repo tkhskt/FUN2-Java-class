@@ -33,9 +33,18 @@ public class Stat {
 		 * ※　要素数はdataの長さ(.length）で得られる．
 		 * ※　dataの平均はaverage()メソッドに渡して得られる．
 		 */
+		double avg=0.0;
+		double bunsan = 0.0;
+		for(double i:data){
+			avg = avg + i;
+		}
+		avg = avg/data.length;
+		for(double j:data){
+			bunsan = bunsan + Math.pow(j-avg, 2);
+		}
 		
 		// TODO 2 ここを作成
-		return 0.0; // これは仮のものであり，正しい行に置き換えること
+		return bunsan/data.length; // これは仮のものであり，正しい行に置き換えること
 	}
 	
 	/** 3
@@ -50,9 +59,36 @@ public class Stat {
 		 * ※　この場合はdata1とdata2の2つの配列を同一の添え字で参照するので，拡張for文は使えない
 		 * ※　平方根はMath.sqrt()で得られる．
 		 */
-
+		double n = 0.0;
+		double avg1 = 0.0;
+		double avg2 = 0.0;
+		for(double d1:data1){
+			avg1 = avg1 + d1;
+		}
+		avg1 = avg1/data1.length;//data1平均
+		for(double d2:data2){
+			avg2 = avg2 + d2;
+		}
+		avg2 = avg2/data2.length; //data2平均
+		for(int i=0;i<data1.length;i++){
+			n = n + (data1[i]-avg1)*(data2[i]-avg2);
+		}
+		
+		double hensa1 = 0.0;
+		double hensa2 = 0.0;
+	    for(double dd1:data1){
+	    	hensa1 = hensa1 + Math.pow(dd1-avg1, 2);
+	    }
+		hensa1 = Math.sqrt(hensa1/data1.length);
+		for(double dd2:data2){
+	    	hensa2 = hensa2 + Math.pow(dd2-avg2, 2);
+	    }
+		hensa2 = Math.sqrt(hensa2/data2.length);
+		
+		return n/(data1.length*hensa1*hensa2);
+		
+		
 		// TODO 3 ここを作成
-		return 0.0; // これは仮のものであり，正しい行に置き換えること
 	}
 	
 	/** 4
@@ -73,7 +109,23 @@ public class Stat {
 		 * 作業変数：int型のn：0ではない要素の数を格納する
 		 */
 		
-		// TODO 4 ここを作成
+		double avg =0.0;
+		int len=0;
+		for(double i:data){
+			if(i==0){
+				continue;
+			}
+			avg = avg + i;
+			len++;
+		}
+		avg = avg/len;
+		for(int i=0;i<data.length;i++){
+			if(data[i]==0){
+				d[i] = avg;
+			}else{
+				d[i]= data[i];
+			}
+		}
 		
 		/*
 		 * 続いて，dataの各要素を見てゆき，0以外の要素であれば，それをdに入れ，
